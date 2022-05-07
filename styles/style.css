@@ -1,0 +1,31 @@
+html {
+    font-size: 10px;
+    font-family: 'Macondo', cursive;
+    background-color: #000000;
+}
+
+body {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #202124;
+    padding: 0 20px 20px 20px;
+    border: 5px solid black;
+}
+
+h1 {
+    color: rgb(194, 67, 32);
+    font-size: 60px;
+    text-align: center;
+    letter-spacing: -5px;
+    text-shadow: 1px 1px 2px rgb(214, 210, 187);
+    margin: 0;
+    padding: 20px 0;
+}
+
+p,
+li {
+    color: rgb(214, 210, 187);
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
