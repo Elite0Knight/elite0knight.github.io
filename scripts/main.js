@@ -15,7 +15,7 @@ let foodImage = document.querySelector('img');
 let randomImage;
 
 let iterationsOfCurrentTest = 0;
-let maxIterations = 3;
+let maxIterations = 30;
 
 // DOM elements
 let timeElement = document.getElementById('timeOfLastExperiment');
