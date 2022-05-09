@@ -2,34 +2,65 @@
 <html>
 
 <head>
-    <title>Human Computer Interaction - User Study</title>
-    <meta charset="utf-8">
+    <title>Human Capabilities - Reaction test</title>
 
-    <!-- include CSS sheet -->
     <link href="styles/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 
     <!-- use "defer", to load JavaScript at the end, after the other elements loaded in -->
     <script defer src="scripts/main.js"></script>
+
+    <style>
+
+    </style>
 </head>
 
 <body>
-    <!-- comment about the header of my website: it doesn't have the best wording -->
-    <h1> Human Computer Interaction - User study </h1>
-    <p> On this Website, we conduct a user study with three different reaction tests. </p>
-    <p> Each user should comlete each test 30 times. </p>
-    <p> Insstructions are the following: </p>
+    <h1 id="title">User Study</h1>
 
-    <ul>
-        <li>This is a list item.</li>
-        <li>This is a list item.</li>
-        <li>This is a list item.</li>
-        <li>This is a list item.</li>
-    </ul>
+    <div id="context">
+        <h3> Context </h3>
+        <p> This user study collects data about the reaction time of humans based on different stimuli. </p>
+        <p> There are three different type of stimuli:
+        <ul>
+            <li> Unary Stimulus: A circle slowly appearing on a random position on the screen. The user has to react as
+                soon as he recognizes the circle. </li>
+            <li> Binary Stimulus: Circles and Triangles appear on the screen. The user has to react as
+                soon as he recognizes a triangle.</li>
+            <li> Complex Stimulus: Images of (Italian, Chinese or Mexican) food is shown. The user has to press
+                different buttons based on the origin country of the food. </li>
+        </ul>
+        </p>
+    </div>
 
-    <p>If you are instead looking for my test-website, where I am learning HTML, CSS and JavaScript, please click
-        <a href="https://jelitau.github.io/"> here </a>.
-    </p>
+
+    <h3 id="progress"> Completed Reaction Tests: 0/3 </h3>
+
+
+    <h2 id="instruction">Press space to start!</h2>
+
+    <div id="ex1">
+        <div id="circle1"> &nbsp; </div>
+    </div>
+    <div id="ex2">
+        <div id="circle2"> &nbsp; </div>
+        <div id="triangle"> &nbsp; </div>
+    </div>
+    <div id="ex3">
+        <img src="images/sunset.png" alt="A sunset.">
+    </div>
+
+    <h4 id="timeOfLastExperiment"> Time: </h4>
+
+    <div id="results">
+        <h4> Unary Stimulus: </h3>
+        <p id="results1"> text </p>
+        <h4> Binary Stimulus: </h3>
+        <p id="results2"> text </p>
+        <h4> Complex Stimulus: </h3>
+        <p id="results3"> text </p>
+    </div>
+
 
 </body>
 
