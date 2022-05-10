@@ -131,7 +131,7 @@ function nextExperiment() {
         executeIterationOfCurrentExperiment();
     } else {
         instructionElement.hidden = true;
-        instructionHelperElement.textContent = "Please send the collected Data to us via this mail adress: 'st167417@stud.uni-stuttgart.de'. Also, if you wish for your data to be evaluated by us, please include your age and gender in the mail, as we need to include this data in the documentation of our study design and analysis.";
+        instructionHelperElement.textContent = "As we collected enough Data, you don't have to send us the results anymore.";
         instructionHelperElement.hidden = false;
         timeElement.hidden = true;
         console.log("now: read out data from the times[] arrays.");
