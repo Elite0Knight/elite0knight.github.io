@@ -3,6 +3,8 @@ let stimulusCurrentlyVisible = false; // false -> user input is an error, true -
 
 let stimulusTimestamp; // time at which the stimulus last appeared (in milliseconds, see Date.now())
 let timeoutsEx2 = [];
+let timeoutsEx3 = [];
+
 
 let times1 = []; // recorded reaction times in milliseconds
 let times2 = []; // recorded reaction times in milliseconds
@@ -125,6 +127,9 @@ function nextExperiment() {
     while (timeoutsEx2.length > 0) {
         clearTimeout(timeoutsEx2.pop())
     }
+    while (timeoutsEx3.length > 0) {
+        clearTimeout(timeoutsEx3.pop())
+    }
     instructionHelperElement.hidden = true;
     experimentStage++;
     if (experimentStage < 3) {
@@ -152,7 +157,7 @@ function experiment1() {
     ex1Circle.style.left = ((String)(Math.random() * 100)) + "%";
 
     // schedule the stimulus to appear after a random amount of time
-    let timeToWaitInSeconds = Math.random() * 4 + 1; //1-5s
+    let timeToWaitInSeconds = Math.random() * 4 + 2; //2-6s
     setTimeout(unfade, timeToWaitInSeconds * 1000);
 }
 
@@ -210,7 +215,7 @@ function setSize(object, size, halfSize) {
 }
 
 function makeVisibleAfterTime(object) {
-    let timeToWaitInSeconds = Math.random() * 4 + 1; // 1-5s
+    let timeToWaitInSeconds = Math.random() * 4 + 2; // 2-6s
     timeoutsEx2.push(setTimeout(unhide, timeToWaitInSeconds * 1000, object));
 
     function unhide(object) {
@@ -225,18 +230,32 @@ function makeVisibleAfterTime(object) {
 }
 
 function experiment3() {
+    while (timeoutsEx3.length > 0) {
+        clearTimeout(timeoutsEx3.pop())
+    }
     instructionElement.textContent = "Press different keys based on the origin of the food!";
     instructionHelperElement.textContent = "('1' = Italien dish, '2' = Chinese dish, '3' = Mexican dish)";
     instructionHelperElement.hidden = false;
     // reset the elements for this experiment
     ex3Elements.hidden = false;
-    //stimulusCurrentlyVisible does not need to be set, as there is no delay between the images
+    foodImage.hidden = true;
+    stimulusCurrentlyVisible = false;
 
-    // choose randomly the next item to display, randomImage gets assigned a random number between (inclusive) 0 and 29
-    randomImage = Math.floor(Math.random() * 30);
-    foodImage.setAttribute('src', foodLinks[randomImage]);
-    stimulusTimestamp = Date.now();
+    // schedule the stimulus to appear after a random amount of time
+    let timeToWaitInSeconds = Math.random() * 4 + 2; //2-6s
+    timeoutsEx3.push(setTimeout(showImage, timeToWaitInSeconds * 1000));
+
+    function showImage() {
+        // choose randomly the next item to display, randomImage gets assigned a random number between (inclusive) 0 and 29
+        randomImage = Math.floor(Math.random() * 30);
+        foodImage.setAttribute('src', foodLinks[randomImage]);
+        stimulusTimestamp = Date.now();
+        foodImage.hidden = false;
+        stimulusCurrentlyVisible = true;
+    }
 }
+
+
 
 function fillFoodLinks() {
     foodLinks[0] = "images/italien_0.png";
